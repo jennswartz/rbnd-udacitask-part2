@@ -21,7 +21,11 @@ class UdaciList
   end
 
   def delete(index)
-    @items.delete_at(index - 1)
+    if index <= @items.length 
+      @items.delete_at(index - 1)
+    else
+	  raise UdaciListErrors::IndexExceedsListSize, "Deleted item exceeds list boundaries."
+    end
   end
 
   def all
