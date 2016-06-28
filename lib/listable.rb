@@ -1,6 +1,6 @@
 module Listable
-  def format_description(description)
-    "#{description}".ljust(25)
+  def format_description(description, item_type)
+    "#{description} (#{item_type})".ljust(25)
   end
 
   def format_date(start_date, end_date=nil)
@@ -16,16 +16,5 @@ module Listable
     value = " ⇩".colorize(:blue) if priority == "low"
     value = "" if !priority
     return value
-  end
-
-  
-#   def format_priority(priority)
-#     value = " ⇧" if priority == "high"
-#     value = " ⇨" if priority == "medium"
-#     value = " ⇩" if priority == "low"
-#     value = "" if !priority
-#     return value
-#   end
-
-        
+  end        
 end

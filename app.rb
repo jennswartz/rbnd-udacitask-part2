@@ -1,7 +1,8 @@
+require 'bundler/setup'
+require 'date'
 require 'chronic'
 require 'colorize'
 require 'highline'
-require 'date'
 require_relative "lib/listable"
 require_relative "lib/errors"
 require_relative "lib/udacilist"
@@ -48,5 +49,5 @@ new_list.all
 
 # DEMO NEW FEATURES
 # Asks if you want to delete an item then deletes that item
-new_list.ask_delete
-new_list.all
+# new_list.ask_delete
+# new_list.all
