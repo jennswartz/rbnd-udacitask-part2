@@ -19,7 +19,19 @@ class UdaciList
       raise UdaciListErrors::InvalidItemType, "#{type} is an invalid item type"
     end
   end
-
+  
+  def ask_delete
+    ask_delete = HighLine.new
+    want_to_delete = ask_delete.agree "Do you want to delete an item? Answer 'yes' or 'no'."
+    if want_to_delete
+      which_items = ask_delete.ask "Which item would you like to delete (enter number)?"
+      puts "Ok, you want to delete Item #{which_items}.  I will delete it."
+      delete(which_items.to_i)
+    else
+      puts "Goodbye."
+    end
+  end
+  
   def delete(index)
     if index <= @items.length 
       @items.delete_at(index - 1)
@@ -27,6 +39,8 @@ class UdaciList
 	  raise UdaciListErrors::IndexExceedsListSize, "Deleted item exceeds list boundaries."
     end
   end
+
+
 
   def all
     puts "-" * 20

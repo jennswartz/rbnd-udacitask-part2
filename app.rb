@@ -1,6 +1,6 @@
 require 'chronic'
 require 'colorize'
-# Find a third gem of your choice and add it to your project
+require 'highline'
 require 'date'
 require_relative "lib/listable"
 require_relative "lib/errors"
@@ -45,3 +45,8 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 # new_list.filter("event")
+
+# DEMO NEW FEATURES
+# Asks if you want to delete an item then deletes that item
+new_list.ask_delete
+new_list.all
