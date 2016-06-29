@@ -39,7 +39,7 @@ class UdaciList
       puts "Goodbye."
     end
   end
-
+        
   def all(list=@items)
     puts "-" * 20
     puts @title
@@ -63,6 +63,17 @@ class UdaciList
       all(filter_list)
     else 
       raise UdaciListErrors::InvalidListFilterType, "There aren't any items of that type."
+    end
+  end
+
+  def ask_filter
+    ask_filter = HighLine.new
+    want_to_filter = ask_filter.agree "Do you want organize by list type? Answer 'y' or 'n'."
+    if want_to_filter
+      how_filter = ask_filter.ask "What type of list do you want? e.g. todo, event, link"
+      filter(how_filter)
+    else
+      puts "Goodbye"
     end
   end
 end
