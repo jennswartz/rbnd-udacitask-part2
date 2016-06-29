@@ -16,10 +16,18 @@ class UdaciList
     when "link"
       @items.push LinkItem.new(item_type, description, options)
     else
-      raise UdaciListErrors::InvalidItemType, "#{type} is an invalid item type"
+      raise UdaciListErrors::InvalidItemType, "#{item_type} is an invalid item type"
     end
   end
-  
+    
+  def delete(index)
+    if index <= @items.length 
+      @items.delete_at(index - 1)
+    else
+	  raise UdaciListErrors::IndexExceedsListSize, "Deleted item exceeds list boundaries."
+    end
+  end
+
   def ask_delete
     ask_delete = HighLine.new
     want_to_delete = ask_delete.agree "Do you want to delete an item? Answer 'yes' or 'no'."
@@ -31,22 +39,30 @@ class UdaciList
       puts "Goodbye."
     end
   end
-  
-  def delete(index)
-    if index <= @items.length 
-      @items.delete_at(index - 1)
-    else
-	  raise UdaciListErrors::IndexExceedsListSize, "Deleted item exceeds list boundaries."
-    end
-  end
 
-  def all
+  def all(list=@items)
     puts "-" * 20
     puts @title
     puts "-" * 20
-    @items.each_with_index do |item, position|
+    list.each_with_index do |item, position|
       puts "#{position + 1}) #{item.details}"
     end
   end
-    
+
+  def filter(item_type)
+    item_type = item_type.downcase
+    case item_type
+    when "todo"
+      filter_list = @items.select { |item| item.class == TodoItem }
+      all(filter_list)
+    when "event"
+      filter_list = @items.select { |item| item.class == EventItem }
+      all(filter_list)
+    when "link"
+      filter_list = @items.select { |item| item.class == LinkItem }
+      all(filter_list)
+    else 
+      raise UdaciListErrors::InvalidListFilterType, "There aren't any items of that type."
+    end
+  end
 end
