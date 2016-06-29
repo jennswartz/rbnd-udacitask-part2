@@ -73,7 +73,7 @@ class UdaciList
       how_filter = ask_filter.ask "What type of list do you want? e.g. todo, event, link"
       filter(how_filter)
     else
-      puts "Goodbye"
+      puts "Goodbye."
     end
   end
 end

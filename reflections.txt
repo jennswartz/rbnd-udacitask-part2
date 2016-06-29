@@ -1,15 +1,40 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+I used HighLine in this project.  I used it add interactivity to the list via
+asking questions from the console.
+
 2. Describe the 2 features you added to the project.
   a) Feature 1...
+  The ask_delete method asks if you want to delete a list item.  If you answer yes, it 
+  asks which number you would like to delete.  It then deletes that number off the list.
+  
   b) Feature 2...
+  The ask_filter method asks if you want to filter the list.  If you answer yes, you enter
+  what type of list you want, and it filters the list to that type.
 
-extra: extra error feature
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+I worked on this project over the course of about four days.
+
 2. What was the most rewarding challenge you conquered?
+I overcame my gem obstacles.  I tried a couple of other gems before HighLine.  One conflicted
+with Colorize, so I tried something else.  I tried a progress bar gem that
+said it was a simple progress bar, but there was no documentation, and I couldn't see that it
+did anything when I tried it.  
+
+I tried another progress bar gem, and it when I tried to refractor my code to 
+make it work, I broke things that worked previously, and coded myself into a hole that I couldn't
+get myself out of.  I think the code to make that gem work with my current code may be more
+advanced than my current level (or the time I wanted to spend to try to figure it out). 
+I eventually settled on HighLine and was able to make it work with success. 
+
 3. What two additional features did you build? Why?
+Once I figured out how to use HighLine, I had fun playing around with it.  I added the 
+interactive functionality for deleting an item and filtering a list because they seemed like
+the most logical choices to have as interactive features.
+
 4. Where do you still have room to grow?
+I still have a large learning gap in understanding how to make the code do what I want it do.

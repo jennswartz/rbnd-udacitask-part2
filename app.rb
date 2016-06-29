@@ -46,15 +46,18 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 # new_list.filter("event")
-# Additional tests for filter
-#new_list.filter("todo")
-#new_list.filter("link")
+
+# ADDITIONAL TESTS FOR FILTER
+# new_list.filter("todo")
+# new_list.filter("link")
+
 # This one throws InvalidListFilterType error
 # new_list.filter("photo") 
 # new_list.all
 
 # DEMO NEW FEATURES
 # Asks if you want to delete an item then deletes that item
+# new_list.all
 # new_list.ask_delete
 # new_list.all
-new_list.ask_filter
+# new_list.ask_filter
